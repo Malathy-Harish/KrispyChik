@@ -12,6 +12,13 @@
 
   <ItemGroup>
     <Folder Include="Controllers\" />
+    <Folder Include="Controllers\" />
+    <Folder Include="Entities\" />
+    <Folder Include="Model\" />
+    <Folder Include="Business Contracts\" />
+    <Folder Include="Data Contracts\" />
+    <Folder Include="Business Manager\" />
+    <Folder Include="Data Access\" />
   </ItemGroup>
 
 </Project>
