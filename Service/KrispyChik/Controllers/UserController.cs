@@ -1,4 +1,6 @@
-﻿using KrispyChik.Business_Manager;
+﻿using KrispyChik.Business_Contracts;
+using KrispyChik.Business_Manager;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -6,10 +8,11 @@ namespace KrispyChik.Controllers
 {
     [Route("api/[controller]/[action]")]
     [ApiController]
+    [Authorize]
     public class UserController : ControllerBase
     {
-        private readonly UserManager _usermanager;
-        public UserController(UserManager usermanager)
+        private readonly IUserManager _usermanager;
+        public UserController(IUserManager usermanager)
         { 
             _usermanager = usermanager;
         }
@@ -19,6 +22,12 @@ namespace KrispyChik.Controllers
         public IActionResult  GetAllUsers()
         {
             return Ok(_usermanager.GetAllUsers());
+        }
+
+        [HttpGet]
+        public IActionResult Test()
+        {
+            return Ok(true);
         }
     }
 }

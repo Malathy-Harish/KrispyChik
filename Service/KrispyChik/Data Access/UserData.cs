@@ -6,8 +6,8 @@ namespace KrispyChik.Data_Access
 {
     public class UserData : IUserData
     {
-        private readonly UserDb _userdb;
-        public UserData(UserDb userdb)
+        private readonly AppDataContext _userdb;
+        public UserData(AppDataContext userdb)
         {
             _userdb = userdb;
         }

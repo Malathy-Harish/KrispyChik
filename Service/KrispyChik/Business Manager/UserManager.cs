@@ -1,5 +1,6 @@
 ﻿using KrispyChik.Business_Contracts;
 using KrispyChik.Data_Contracts;
+using KrispyChik.Entities;
 using KrispyChik.Model;
 
 namespace KrispyChik.Business_Manager
