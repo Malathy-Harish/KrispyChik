@@ -18,11 +18,8 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddDbContextConnection();
-
 builder.Services.JWTAuthorization();
 builder.Services.AddDependencies();
-builder.Services.AddDbContext<UserDb>(options =>
-    options.UseSqlServer(@"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=KrispyChik;Integrated Security=True;"));
 
 var app = builder.Build();
 
