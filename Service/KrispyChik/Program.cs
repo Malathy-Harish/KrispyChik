@@ -3,7 +3,11 @@ using KrispyChik.Business_Manager;
 using KrispyChik.Data_Access;
 using KrispyChik.Data_Contracts;
 using KrispyChik.Entities;
+using KrispyChik.Framework;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.IdentityModel.Tokens;
+using System.Text;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -15,8 +19,9 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddTransient<IUserData, UserData>();
 builder.Services.AddTransient<IUserManager, UserManager>();
-builder.Services.AddDbContext<UserDb>(options =>
-    options.UseSqlServer(@"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=KrispyChik;Integrated Security=True;"));
+builder.Services.AddDbContextConnection();
+
+builder.Services.JWTAuthorization();
 
 var app = builder.Build();
 
