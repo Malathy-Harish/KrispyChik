@@ -17,11 +17,12 @@ builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
-builder.Services.AddTransient<IUserData, UserData>();
-builder.Services.AddTransient<IUserManager, UserManager>();
 builder.Services.AddDbContextConnection();
 
 builder.Services.JWTAuthorization();
+builder.Services.AddDependencies();
+builder.Services.AddDbContext<UserDb>(options =>
+    options.UseSqlServer(@"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=KrispyChik;Integrated Security=True;"));
 
 var app = builder.Build();
 
