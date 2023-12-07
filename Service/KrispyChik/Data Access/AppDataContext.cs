@@ -9,5 +9,7 @@ namespace KrispyChik.Data_Access
         public AppDataContext(DbContextOptions<AppDataContext> options) : base(options) { }
 
         public DbSet<User> Users { get; set; }
+
+        public DbSet<Auth> Auths { get; set; }
     }
 }

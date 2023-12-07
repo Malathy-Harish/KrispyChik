@@ -1,7 +1,10 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using KrispyChik.Business_Contracts;
+using KrispyChik.Business_Manager;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.IdentityModel.Tokens;
 using System.IdentityModel.Tokens.Jwt;
+using System.Net;
 using System.Security.Claims;
 using System.Text;
 
@@ -11,10 +14,16 @@ namespace KrispyChik.Controllers
     [ApiController]
     public class AuthController : ControllerBase
     {
+        private readonly IAuthManager _authmanager;
+        public AuthController(IAuthManager authmanager)
+        {
+            _authmanager = authmanager;
+        }
         [HttpGet]
         public IActionResult SignIn(string username, string password)
         {
-            if (true)
+            var result = _authmanager.CheckPassword(username, password);
+            if (result)
             {
                 var claimsdata = new[]
                 {

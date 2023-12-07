@@ -11,6 +11,8 @@ namespace KrispyChik.Framework
         {
             services.AddTransient<IUserData, UserData>();
             services.AddTransient<IUserManager, UserManager>();
+            services.AddTransient<IAuthData, AuthData>();
+            services.AddTransient<IAuthManager, AuthManager>();
             return services;
         }
     }

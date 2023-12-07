@@ -16,8 +16,8 @@ namespace KrispyChik.Entities
         [Column("ADDRESS")]
         public string Address { get; set; }
         [Column("PHONENUM")]
-        public string PhoneNum { get; set; }
+        public int PhoneNum { get; set; }
         [Column("ROLEID")]
-        public string RoleId { get; set; }
+        public int RoleId { get; set; }
     }
 }

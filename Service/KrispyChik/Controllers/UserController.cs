@@ -8,7 +8,7 @@ namespace KrispyChik.Controllers
 {
     [Route("api/[controller]/[action]")]
     [ApiController]
-    [Authorize]
+   // [Authorize]
     public class UserController : ControllerBase
     {
         private readonly IUserManager _usermanager;
