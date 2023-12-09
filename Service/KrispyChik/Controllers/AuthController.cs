@@ -20,7 +20,7 @@ namespace KrispyChik.Controllers
             _authmanager = authmanager;
         }
         [HttpGet]
-        public IActionResult SignIn(string username, string password)
+        public string SignIn(string username, string password)
         {
             var result = _authmanager.CheckPassword(username, password);
             if (result)
@@ -42,10 +42,12 @@ namespace KrispyChik.Controllers
                 );
                 var tokenString = new JwtSecurityTokenHandler().WriteToken(token);
 
-                return Ok(tokenString);
+                return (tokenString);
             }
 
-            return Ok("User and password is wrong");
+            return ("User and password is wrong");
         }
     }
 }
+
+

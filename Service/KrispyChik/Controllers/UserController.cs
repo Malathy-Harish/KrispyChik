@@ -29,5 +29,11 @@ namespace KrispyChik.Controllers
         {
             return Ok(true);
         }
+
+        [HttpPost]
+        public IActionResult AddUser() 
+        {
+            return Ok();
+        }
     }
 }

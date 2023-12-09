@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import {  User } from 'src/app/model/User';
+import { ProjectService } from 'src/app/services/project.service';
 
 @Component({
   selector: 'app-sign-in',
@@ -6,5 +8,22 @@ import { Component } from '@angular/core';
   styleUrls: ['./sign-in.component.scss']
 })
 export class SignInComponent {
+
+  constructor(private service: ProjectService){}
+  usr : User = new User();
+  
+  submit(): void{
+    this.service.SignIn(this.usr.UserName,this.usr.Password).subscribe(
+      {
+        next: (e: any) => {
+          console.log(JSON.parse(e))
+          
+
+        }
+      }
+    )
+    
+  }
+   
 
 }

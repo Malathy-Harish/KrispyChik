@@ -3,14 +3,14 @@
 <form>  
     <div class="container">   
         <label>Username : </label>   
-        <input type="text" placeholder="Enter Username" name="username" required>  <br><br>
+        <input type="text" placeholder="Enter Username" name="username" required [(ngModel)]="usr.UserName">  <br><br>
         <label>Password : </label>   
-        <input type="password" placeholder="Enter Password" name="password" required>  <br><br>
-        <button type="submit">Login</button>   <br><br>
+        <input type="password" placeholder="Enter Password" name="password" required [(ngModel)]="usr.Password">  <br><br>
+        <button  (click)="submit()">Login</button>   <br><br>
         <label>New User?: </label>
-        <button type="submit"><a routerLink="../signup">SignUp</a></button>
+        <button><a routerLink="../signup">SignUp</a></button>
 
-        
+         
     </div>   
 </form>     
 
