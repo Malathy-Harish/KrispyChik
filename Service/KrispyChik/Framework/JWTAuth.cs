@@ -16,12 +16,10 @@ namespace KrispyChik.Framework
                     {
                         ValidateIssuer = true,
                         ValidateAudience = true,
-                        ValidateLifetime = true,
                         ValidateIssuerSigningKey = true,
                         ValidIssuer = "http://localhost",
                         ValidAudience = "http://localhost",
-                        IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes("w2SoigJvVvuydwAJKuAVT6oRbtalqNDy")),
-                        ClockSkew = TimeSpan.Zero
+                        IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes("w2SoigJvVvuydwAJKuAVT6oRbtalqNDy"))
                     };
                 });
             return services;

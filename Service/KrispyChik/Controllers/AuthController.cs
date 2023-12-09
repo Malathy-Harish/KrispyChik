@@ -31,7 +31,7 @@ namespace KrispyChik.Controllers
                     new Claim("Date", DateTime.Now.ToString())
                 };
                 var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes("w2SoigJvVvuydwAJKuAVT6oRbtalqNDy"));
-                var signinCred = new SigningCredentials(key, SecurityAlgorithms.HmacSha256Signature);
+                var signinCred = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
 
                 var token = new JwtSecurityToken(
                     issuer: "http://localhost",
