@@ -1,5 +1,6 @@
 ﻿using KrispyChik.Business_Contracts;
 using KrispyChik.Business_Manager;
+using KrispyChik.Model;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.IdentityModel.Tokens;
@@ -20,7 +21,7 @@ namespace KrispyChik.Controllers
             _authmanager = authmanager;
         }
         [HttpGet]
-        public string SignIn(string username, string password)
+        public IActionResult SignIn(string username, string password)
         {
             var result = _authmanager.CheckPassword(username, password);
             if (result)
@@ -41,11 +42,15 @@ namespace KrispyChik.Controllers
                     signingCredentials: signinCred
                 );
                 var tokenString = new JwtSecurityTokenHandler().WriteToken(token);
+                AuthVM auth = new AuthVM()
+                {
+                    token = tokenString
+                };
 
-                return (tokenString);
+                return Ok(auth);
             }
 
-            return ("User and password is wrong");
+            return BadRequest("User and password is wrong");
         }
     }
 }

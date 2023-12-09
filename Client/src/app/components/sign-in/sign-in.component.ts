@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Auth } from 'src/app/model/Auth';
 import {  User } from 'src/app/model/User';
 import { ProjectService } from 'src/app/services/project.service';
 
@@ -15,8 +16,8 @@ export class SignInComponent {
   submit(): void{
     this.service.SignIn(this.usr.UserName,this.usr.Password).subscribe(
       {
-        next: (e: any) => {
-          console.log(JSON.parse(e))
+        next: (e: Auth) => {
+          console.log(e.token)
           
 
         }
